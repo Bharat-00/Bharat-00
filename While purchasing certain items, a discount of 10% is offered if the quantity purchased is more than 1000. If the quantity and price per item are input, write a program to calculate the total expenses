@@ -1,0 +1,14 @@
+import java.util.Scanner;
+public class TotalExpenses {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int T = scanner.nextInt();
+        for (int t = 0; t < T; t++) {
+            int quantity = scanner.nextInt();
+            int price = scanner.nextInt();
+            double totalExpenses = quantity * price * (quantity > 1000 ? 0.9 : 1.0);
+            System.out.printf("%.6f%n", totalExpenses);
+        }
+        scanner.close();
+    }
+}
