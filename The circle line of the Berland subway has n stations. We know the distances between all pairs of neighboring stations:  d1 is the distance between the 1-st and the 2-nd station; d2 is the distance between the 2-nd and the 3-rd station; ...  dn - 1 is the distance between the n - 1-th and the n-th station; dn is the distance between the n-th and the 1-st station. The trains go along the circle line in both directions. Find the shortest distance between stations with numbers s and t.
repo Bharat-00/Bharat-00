@@ -1,0 +1,24 @@
+#include <stdio.h>
+int main() {
+    int n, s, t;
+    scanf("%d", &n);
+    int distances[n];
+    for (int i = 0; i < n; ++i)
+        scanf("%d", &distances[i]);
+    scanf("%d %d", &s, &t);
+    if (s > t) {
+        int temp = s;
+        s = t;
+        t = temp;
+    }
+    int forward_distance = 0, reverse_distance = 0;
+    for (int i = s-1; i < t-1; ++i)
+        forward_distance += distances[i];
+    for (int i = t-1; i < n; ++i)
+        reverse_distance += distances[i];
+    for (int i = 0; i < s-1; ++i)
+        reverse_distance += distances[i];
+    int result = (forward_distance < reverse_distance) ? forward_distance : reverse_distance;
+    printf("%d\n", result);
+    return 0;
+}
